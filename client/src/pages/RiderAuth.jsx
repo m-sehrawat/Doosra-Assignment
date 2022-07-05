@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addRiderToDatabaseRequest } from "../redux/features/rider/actions";
 
 
 export const RiderAuth = () => {
@@ -13,6 +15,7 @@ export const RiderAuth = () => {
 
     const [form, setForm] = useState(initState);
     const [coordinates, setCoordinates] = useState({ x: "", y: "" });
+    const dispatch = useDispatch();
 
     const handleInputChange = ({ target: { value, name } }) => {
         setForm({ ...form, [name]: value })
@@ -24,8 +27,9 @@ export const RiderAuth = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const payload = { user: form, coordinates };
+        const payload = { rider: form, coordinates };
         console.log(payload);
+        dispatch(addRiderToDatabaseRequest(payload));
     }
 
     return (

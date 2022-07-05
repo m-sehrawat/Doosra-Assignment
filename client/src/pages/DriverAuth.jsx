@@ -9,6 +9,7 @@ export const DriverAuth = () => {
         email: "",
         mobile: "",
         role: 'driver',
+        availability: 'on'
     }
 
 
@@ -25,7 +26,7 @@ export const DriverAuth = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const payload = { user: form, coordinates };
+        const payload = { driver: form, coordinates };
         console.log(payload);
     };
 

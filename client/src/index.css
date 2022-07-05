@@ -24,3 +24,10 @@ code {
   flex-direction: column;
   gap: 10px;
 }
+
+.navbar {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addRiderToDatabaseRequest } from "../redux/features/rider/actions";
 
 
@@ -16,6 +17,7 @@ export const RiderAuth = () => {
     const [form, setForm] = useState(initState);
     const [coordinates, setCoordinates] = useState({ x: "", y: "" });
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleInputChange = ({ target: { value, name } }) => {
         setForm({ ...form, [name]: value })
@@ -30,6 +32,7 @@ export const RiderAuth = () => {
         const payload = { rider: form, coordinates };
         console.log(payload);
         dispatch(addRiderToDatabaseRequest(payload));
+        navigate('/');
     }
 
     return (

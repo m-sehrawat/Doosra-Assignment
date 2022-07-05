@@ -17,6 +17,7 @@ export const BookRide = () => {
     const [threshold, setThreshold] = useState(5);
     const [nearDriver, setNearDriver] = useState({});
     const [showData, setShowdata] = useState(false);
+    const [trip, setTrip] = useState(true);
     console.log('showData:', showData)
 
     const handleGetMyDriver = () => {
@@ -57,9 +58,16 @@ export const BookRide = () => {
                 <div className="border home">
                     <h3>Nearest Driver Details</h3>
 
-                    {showData && (nearDriver.firstName ? (<div>
-                        <p>{nearDriver.firstName} {nearDriver.lastName}</p>
-                    </div>) : (
+                    {showData && (nearDriver.firstName ? (
+                        <div>
+                            <p>{nearDriver.firstName} {nearDriver.lastName}</p>
+                            <button
+                                onClick={() => { setTrip(!trip) }}
+                            >
+                                {trip ? 'Start Trip' : 'End Trip'}
+                            </button>
+                        </div>
+                    ) : (
                         <p>No driver is available in this range</p>
                     ))}
                 </div>

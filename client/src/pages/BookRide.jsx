@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { getNearestDriver } from "../utils/getNearestDriver";
 
@@ -10,9 +11,15 @@ export const BookRide = () => {
     const rider = useSelector((state) => state.riderReducer.rider);
     const { firstName, lastName, coordinates } = rider;
 
-    const myDriver = getNearestDriver(driver, coordinates)
-    console.log('myDriver:', myDriver)
 
+
+
+    const [threshold, setThreshold] = useState(5);
+
+    const handleGetMyDriver = () => {
+        const myDriver = getNearestDriver(driver, coordinates, threshold);
+        console.log('myDriver:', myDriver)
+    }
 
 
     return (
@@ -33,7 +40,13 @@ export const BookRide = () => {
                 </div>
 
                 <div className="home">
-                    <button>Search Nearest Driver</button>
+                    <input
+                        type="number"
+                        onChange={(e) => { setThreshold(e.target.value) }}
+                        style={{ maxWidth: '600px', width: '400px' }}
+                        placeholder="Type your threshold distacnce, 5 is default"
+                    />
+                    <button onClick={handleGetMyDriver}>Search Nearest Driver</button>
                 </div>
 
                 <div className="border home">

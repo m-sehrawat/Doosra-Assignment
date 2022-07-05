@@ -31,7 +31,7 @@ export const RiderAuth = () => {
                     <input onChange={handleInputChange} name="firstName" type="text" placeholder="First Name" />
                     <input onChange={handleInputChange} name="lastName" type="text" placeholder="Last Name" />
                     <input onChange={handleInputChange} name="email" type="email" placeholder="Email" />
-                    <input onChange={handleInputChange} name="mobile" type="tel" placeholder="Mobile" />
+                    <input onChange={handleInputChange} name="mobile" type="number" placeholder="Mobile" />
                     <input type="submit" value={'Signup'} />
                 </form>
             </div>

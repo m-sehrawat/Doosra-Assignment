@@ -19,6 +19,7 @@ export const RiderAuth = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+
     const handleInputChange = ({ target: { value, name } }) => {
         setForm({ ...form, [name]: value })
     };
@@ -30,10 +31,9 @@ export const RiderAuth = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const payload = { ...form, coordinates };
-        console.log(payload);
         dispatch(addRiderToDatabaseRequest(payload));
         navigate('/');
-    }
+    };
 
     return (
         <>

@@ -15,12 +15,12 @@ export const DriverAuth = () => {
         availability: 'on'
     };
 
-
     const [form, setForm] = useState(initState);
     const [coordinates, setCoordinates] = useState({ x: "", y: "" });
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    
     const handleInputChange = ({ target: { value, name } }) => {
         setForm({ ...form, [name]: value })
     };
@@ -32,10 +32,9 @@ export const DriverAuth = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const payload = { ...form, coordinates };
-        console.log(payload);
         dispatch(addDriverToDatabaseRequest(payload));
         navigate('/');
-    }
+    };
 
 
     return (

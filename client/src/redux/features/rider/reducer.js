@@ -1,5 +1,5 @@
 import { getItem } from "../../../utils/localStorage";
-import { ADD_RIDER_DATA_SUCCESS } from "./actionTypes";
+import { ADD_RIDER_DATA_SUCCESS, LOGOUT_RIDER } from "./actionTypes";
 
 
 const initState = {
@@ -12,6 +12,11 @@ export const riderReducer = (state = initState, { type, payload }) => {
             return {
                 ...state,
                 rider: payload
+            };
+        case LOGOUT_RIDER:
+            return {
+                ...state,
+                rider: {}
             };
         default:
             return state;

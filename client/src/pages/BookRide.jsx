@@ -6,26 +6,23 @@ import { getNearestDriver } from "../utils/getNearestDriver";
 export const BookRide = () => {
 
     const driver = useSelector((state) => state.driverReducer.driver);
-    console.log('driver:', driver);
-
     const rider = useSelector((state) => state.riderReducer.rider);
     const { firstName, lastName, coordinates } = rider;
 
 
-
-
     const [threshold, setThreshold] = useState(5);
     const [nearDriver, setNearDriver] = useState({});
+    const [distance, setDistance] = useState(0);
     const [showData, setShowdata] = useState(false);
     const [trip, setTrip] = useState(true);
-    console.log('showData:', showData)
+   
 
     const handleGetMyDriver = () => {
-        const myDriver = getNearestDriver(driver, coordinates, threshold);
+        const { myDriver, distanceBetween } = getNearestDriver(driver, coordinates, threshold);
         setNearDriver(myDriver);
+        setDistance(distanceBetween);
         setShowdata(true);
-        console.log('myDriver:', myDriver)
-    }
+    };
 
 
     return (
@@ -60,7 +57,7 @@ export const BookRide = () => {
 
                     {showData && (nearDriver.firstName ? (
                         <div>
-                            <p>{nearDriver.firstName} {nearDriver.lastName}</p>
+                            <p>{nearDriver.firstName} {nearDriver.lastName} || Distance betwwen driver and you is {distance}</p>
                             <button
                                 onClick={() => { setTrip(!trip) }}
                             >
@@ -73,7 +70,6 @@ export const BookRide = () => {
                 </div>
 
             </div>
-
         </>
     );
 };

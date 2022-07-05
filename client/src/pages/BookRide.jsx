@@ -15,9 +15,14 @@ export const BookRide = () => {
 
 
     const [threshold, setThreshold] = useState(5);
+    const [nearDriver, setNearDriver] = useState({});
+    const [showData, setShowdata] = useState(false);
+    console.log('showData:', showData)
 
     const handleGetMyDriver = () => {
         const myDriver = getNearestDriver(driver, coordinates, threshold);
+        setNearDriver(myDriver);
+        setShowdata(true);
         console.log('myDriver:', myDriver)
     }
 
@@ -51,6 +56,12 @@ export const BookRide = () => {
 
                 <div className="border home">
                     <h3>Nearest Driver Details</h3>
+
+                    {showData && (nearDriver.firstName ? (<div>
+                        <p>{nearDriver.firstName} {nearDriver.lastName}</p>
+                    </div>) : (
+                        <p>No driver is available in this range</p>
+                    ))}
                 </div>
 
             </div>

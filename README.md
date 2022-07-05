@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="js" />
 </p>
 
-<h3 align="center"><a href=""><strong>Want to see live preview »</strong></a></h3>
+<h3 align="center"><a href="mohit-cab-booking.netlify.app/"><strong>Want to see live preview »</strong></a></h3>
 
 <p align="center"> 
     <br />&#10023;

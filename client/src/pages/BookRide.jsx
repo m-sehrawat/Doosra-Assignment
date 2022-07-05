@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { getNearestDriver } from "../utils/getNearestDriver";
 
 
 export const BookRide = () => {
@@ -8,6 +9,9 @@ export const BookRide = () => {
 
     const rider = useSelector((state) => state.riderReducer.rider);
     const { firstName, lastName, coordinates } = rider;
+
+    const myDriver = getNearestDriver(driver, coordinates)
+    console.log('myDriver:', myDriver)
 
 
 
@@ -28,6 +32,13 @@ export const BookRide = () => {
                     ))}
                 </div>
 
+                <div className="home">
+                    <button>Search Nearest Driver</button>
+                </div>
+
+                <div className="border home">
+                    <h3>Nearest Driver Details</h3>
+                </div>
 
             </div>
 

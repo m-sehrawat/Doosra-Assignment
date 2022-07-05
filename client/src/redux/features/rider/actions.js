@@ -10,4 +10,5 @@ export const addRiderToDatabaseRequest = (data) => (dispatch) => {
     dispatch(addRiderDataSuccess(data));
     setItem('rider', data.rider);
     setItem('coordinates', data.coordinates);
+    alert('Rider is regisered');
 }

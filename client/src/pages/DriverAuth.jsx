@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addDriverToDatabaseRequest } from "../redux/features/driver/actions";
 
 
 export const DriverAuth = () => {
@@ -15,6 +17,7 @@ export const DriverAuth = () => {
 
     const [form, setForm] = useState(initState);
     const [coordinates, setCoordinates] = useState({ x: "", y: "" });
+    const dispatch = useDispatch();
 
     const handleInputChange = ({ target: { value, name } }) => {
         setForm({ ...form, [name]: value })
@@ -26,8 +29,9 @@ export const DriverAuth = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const payload = { driver: form, coordinates };
+        const payload = { ...form, coordinates };
         console.log(payload);
+        dispatch(addDriverToDatabaseRequest(payload));
     };
 
     return (

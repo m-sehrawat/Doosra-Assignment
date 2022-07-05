@@ -2,11 +2,9 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 
-export const AuthRoute = ({ children }) => {
+export const PrivateRoute = ({ children }) => {
 
     const rider = useSelector(state => state.riderReducer.rider);
 
-    return rider.firstName ? <Navigate to={'/'} /> : children;
+    return rider.firstName ? children : <Navigate to={'/'} />;
 };
-
-

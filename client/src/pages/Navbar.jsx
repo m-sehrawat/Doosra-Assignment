@@ -10,6 +10,7 @@ export const Navbar = () => {
             <div>
                 <div className="navbar">
                     <Link to={'/'}>Home</Link>
+                    <Link to={'/bookRide'}>Book a Ride</Link>
                     <Link to={'/auth/rider'}>Rider</Link>
                     <Link to={'/auth/driver'}>Driver</Link>
                     {rider.firstName && <p style={{ margin: '0px' }}>{rider.firstName}</p>}

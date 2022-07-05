@@ -22,7 +22,7 @@
   
   <br />
   
-  ## Screens ( All screens are responsive along with Dark Mode)
+  ## Screens
    - Homepage
    - Book a ride page
    - Driver registration 

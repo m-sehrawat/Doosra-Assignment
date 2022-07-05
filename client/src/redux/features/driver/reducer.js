@@ -11,7 +11,7 @@ export const driverReducer = (state = initState, { type, payload }) => {
         case ADD_DRIVER_DATA_SUCCESS:
             return {
                 ...state,
-                driver: [...driver, payload]
+                driver: [...state.driver, payload]
             };
         default:
             return state;

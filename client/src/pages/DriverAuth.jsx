@@ -34,7 +34,7 @@ export const DriverAuth = () => {
         const payload = { ...form, coordinates };
         console.log(payload);
         dispatch(addDriverToDatabaseRequest(payload));
-        navigate('/');
+        // navigate('/');
     }
 
 

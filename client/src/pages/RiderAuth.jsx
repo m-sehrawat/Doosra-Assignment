@@ -29,7 +29,7 @@ export const RiderAuth = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const payload = { rider: form, coordinates };
+        const payload = { ...form, coordinates };
         console.log(payload);
         dispatch(addRiderToDatabaseRequest(payload));
         navigate('/');

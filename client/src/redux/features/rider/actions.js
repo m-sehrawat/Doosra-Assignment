@@ -8,7 +8,6 @@ export const addRiderDataSuccess = (payload) => {
 
 export const addRiderToDatabaseRequest = (data) => (dispatch) => {
     dispatch(addRiderDataSuccess(data));
-    setItem('rider', data.rider);
-    setItem('coordinates', data.coordinates);
+    setItem('rider', data);
     alert('Rider is regisered');
 }

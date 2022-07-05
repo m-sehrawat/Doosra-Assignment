@@ -3,7 +3,7 @@ import { ADD_DRIVER_DATA_SUCCESS } from "./actionTypes";
 
 
 const initState = {
-    driver: getItem('driver') || {},
+    driver: getItem('driver') || [],
 };
 
 export const driverReducer = (state = initState, { type, payload }) => {
@@ -11,7 +11,7 @@ export const driverReducer = (state = initState, { type, payload }) => {
         case ADD_DRIVER_DATA_SUCCESS:
             return {
                 ...state,
-                driver: { ...driver, payload }
+                driver: [...driver, payload]
             };
         default:
             return state;

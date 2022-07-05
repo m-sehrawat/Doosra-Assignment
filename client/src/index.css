@@ -31,3 +31,8 @@ code {
   justify-content: space-around;
   padding: 20px;
 }
+
+.home {
+  text-align: center;
+  margin: 50px;
+}

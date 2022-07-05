@@ -4,7 +4,6 @@ import { ADD_RIDER_DATA_SUCCESS } from "./actionTypes";
 
 const initState = {
     rider: getItem('rider') || {},
-    coordinates: getItem('coordinates') || {}
 };
 
 export const riderReducer = (state = initState, { type, payload }) => {
@@ -12,8 +11,7 @@ export const riderReducer = (state = initState, { type, payload }) => {
         case ADD_RIDER_DATA_SUCCESS:
             return {
                 ...state,
-                rider: payload.rider,
-                coordinates: payload.coordinates
+                rider: payload
             };
         default:
             return state;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addDriverToDatabaseRequest } from "../redux/features/driver/actions";
 
 
@@ -12,12 +13,13 @@ export const DriverAuth = () => {
         mobile: "",
         role: 'driver',
         availability: 'on'
-    }
+    };
 
 
     const [form, setForm] = useState(initState);
     const [coordinates, setCoordinates] = useState({ x: "", y: "" });
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleInputChange = ({ target: { value, name } }) => {
         setForm({ ...form, [name]: value })
@@ -32,7 +34,9 @@ export const DriverAuth = () => {
         const payload = { ...form, coordinates };
         console.log(payload);
         dispatch(addDriverToDatabaseRequest(payload));
-    };
+        navigate('/');
+    }
+
 
     return (
         <>
